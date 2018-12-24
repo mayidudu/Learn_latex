@@ -16,8 +16,9 @@
 \begin{center}
 	本篇笔记用于记录istio学习过程中遇到的问题
 \end{center}
-
-
+\section{ServiceMesh}
+“Service Mesh”概念还非常年轻，这个词在国内被翻译为“服务网格”或“服务啮合层”，我们这里就用Service Mesh这个英文词。这里摘录一下ServiceMesh中文社区上的一篇名为《年度盘点2017之Service Mesh：群雄逐鹿烽烟起[1]》的文章中对Service Mesh概念的回顾：在 2016 年年初，“Service Mesh”还只是 Buoyant 公司的内部词汇，而之后，它开始逐步走向社区：2016 年 9 月 29 日在 SF Microservices 上，“Service Mesh”这个词汇第一次在公开场合被使用。这标志着“Service Mesh”这个词，从 Buoyant 公司走向社区。2016 年 10 月，Alex Leong 开始在 Buoyant 公司的官方 Blog 中连载系列文章“A Service Mesh for Kubernetes”。随着“The Services must Mesh”口号的喊出，Buoyant 和 Linkerd 开始 Service Mesh 概念的布道。2017 年 4 月 25 日，William Morgan 发布博文“What’s a Service Mesh? And why do I need one?”。正式给 Service Mesh 做了一个权威定义。而Service Mesh真正引起大家关注要源于istio项目的开源发布。该项目由Google、IBM共同合作创建，Lyft公司贡献了Envoy项目将作为Istio Service Mesh的data panel。Google、IBM的影响力让Service Mesh概念迅速传播，同时也让大家认识到了Istio项目在Service Mesh领域的重要性，于是纷纷选择积极支持并将自己的产品或项目与Istio项目集成。
+Istio项目是Service Mesh概念的最新实现，旨在所有主流集群管理平台上提供Service Mesh层，初期以实现Kubernetes上的服务治理层为目标。
 
 \section{istio是什么}
 一个用来连接、管理和保护微服务的开放平台。 
@@ -55,6 +56,8 @@ Istio提供一种简单的方式来建立已部署服务网络，具备负载均
 \includegraphics[scale=0.5]{istio/framework2.png}
 \caption{istio分层结构}
 \end{figure}
+Sidecar中Envoy代理了Pod中真正业务Container的所有进出流量，并对这些流量按照控制平面设定的“治理逻辑”进行处理。而这一切对Pod中的业务应用是透明的，开发人员可以专心于业务逻辑，而无需再关心微服务治理的逻辑。Istio代表的Service Mesh的设计理念被认为是下一代“微服务统一框架”，甚至有人认为是微服务框架演化的终点。
+Istio于2017年5月24日发布了0.1 release版本,目前已经到release1.1，并且已经部署在云平台，如华为云。
 
 \section{基本概念}
 
