@@ -1,0 +1,183 @@
+\documentclass{ctexart}
+\CTEXsetup[format={\Large\bfseries}]{section}
+\newcommand{\jn}{JN}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\begin{document}
+
+\title{学习笔记--k8s}
+\author{mayidudu 来自 \jn}
+\maketitle
+%https://blog.csdn.net/wcx1293296315/article/details/79775671, 插图
+\tableofcontents
+
+
+\section{架构与组成部分}
+
+\section{基本概念}
+\begin{enumerate}
+	\item [-] Master
+	
+	\item [-] Node
+	
+	\item [-] Pod
+	
+	\item [-] Label
+	
+	\item [-] Replication Controller (RC)
+	
+	\item [-] Deployment
+	
+	\item [-] Horizontal Pod Autoscaler(HPA)
+	
+	\item [-] Service
+	
+	\item [-] Volume
+	
+	\item [-] Persistent Volume
+	
+	\item [-] Namespace
+	
+	\item [-] Annotation
+	
+	\item [-] Others
+	
+	
+\end{enumerate}
+\section{基本命令}
+\lstset{language=C}
+\begin{lstlisting}
+$kubectl [command] [TYPE] [NAME] [flags]
+\end{lstlisting}
+\subsection{子命令}
+\begin{table}[H]
+	\centering
+	\caption{命令}
+	\begin{tabular}{|l|p{0.9\columnwidth}|}
+		\hline
+		 create & \\\hline
+	delete & \\\hline
+	edit & \\\hline
+		describe& \\\hline
+	get& \\\hline
+	label & \\\hline
+	logs & \\\hline
+	namespace & \\\hline
+	patch & \\\hline
+	port-forward & \\\hline
+	proxy & \\\hline
+	replace & \\\hline
+	rolling-update & \\\hline
+	rollout & \\\hline
+	run & \\\hline
+	scale & \\\hline
+	set & \\\hline
+	taint & \\\hline
+	uncordon & \\\hline
+	version & \\\hline
+	apply& \\\hline
+	exec & 执行容器中的命令\\\hline
+	explain & \\\hline
+annotate & 添加或更新资源对象的annotation信息 \\\hline
+api-version& \\\hline
+attach & kubectl attach POD -c CONTAINER [flag]  \\\hline
+autoscale & 对deployment,replicaset,replicationController进行水平扩容  \\\hline
+cluster-info & \\\hline
+completion & kubectl completion SHELL [flag] 输出shell命令的执行结果码 \\\hline
+config & 修改config文件  \\\hline
+convert & 将配置文件在不同API版本中进行转换\\\hline
+cordon & 将Node标记为不可调度，即隔离 \\\hline
+drain & 先将Node设置为unschedulable,然后删除该node运行的所有Pod，但是不会删除不由apiserver管理的pod。 \\\hline
+%
+	\end{tabular}
+\end{table}
+
+
+\subsection{参数}
+\begin{table}[H]
+	\centering
+	\caption{参数列表}
+	\begin{tabular}{|l|c|}
+		\hline
+		参数名 & 说明 \\\hline
+		--alsologtostderr[=false] & \\\hline
+		--logtostderr[=true] & \\\hline
+		--as="" & 设置本次操作的用户名 \\\hline
+		--certificate-authority="" & \\\hline
+		--client-key="" & \\\hline
+		--cluster="" & \\\hline
+		--context="" & \\\hline
+		--insecure-skip-tls-verify[=false] & \\\hline
+		--kubeconfig="" & \\\hline
+		--log-backtrace-at=:0 & \\\hline
+		--log-dir="" & \\\hline
+		--log-flush-frequency=5s & \\\hline
+		--match-server-version[=false] & \\\hline
+		--namespace="" & \\\hline
+		--password="" & \\\hline
+		-s,--server="" & apiserver url \\\hline
+		--stderrthreshold=2 & \\\hline
+		--token="" & \\\hline
+		--user="" & 指定kubeconfig 的用户名 \\\hline
+		--username="" & apiserver的用户名 \\\hline
+		--v=0 & glog 日志级别 \\\hline
+		--vmodule= & glog 基于模块的详细日志级别 \\\hline
+		
+	\end{tabular}
+\end{table}
+
+\subsection{输出格式}
+\begin{table}[H]
+	\centering
+	\caption{命令输出格式}
+	\begin{tabular}{|l|c|}
+		\hline
+		输出格式 & 说明\\\hline
+		-o=custom-columns=<spec> & \\\hline
+		-o=custom-columns-file=<filename> & \\\hline
+		-o=json & \\\hline
+		-o=jsonpath=<template> & \\\hline
+		-o=jsonpath-file=<filename> & \\\hline
+		-o=name & \\\hline
+		-o=wide & \\\hline
+		-o=yaml & \\\hline
+	\end{tabular}
+\end{table}
+
+
+
+\subsection{资源类型}
+区分大小写，能以单数、复数或简写形式表示
+
+
+\begin{enumerate}
+	\item [-] componentstatuses(cs)
+	\item [-] daemonsets(ds)
+	\item [-] deployments
+	\item [-] events(ev)
+	\item [-] endpoints(ep)
+	\item [-] horizontalpodautoscalers(hpa)
+	\item [-] ingresses(ing)
+	\item [-] jobs
+	\item [-] limitranges(limits)
+	\item [-] nodes(no)
+	\item [-]namespaces(ns)
+	\item [-] pods(po)
+	\item [-] persistentvolumes(pv)
+	\item [-] persistentvolumeclaims(pvc)
+	\item [-] resourcequotas
+	\item [-] replicationcontrollers(rc)
+	\item [-] secrets
+	\item [-] serviceaccounts
+	\item [-] services(svc)
+	
+	
+\end{enumerate}
+
+
+\section{应用方向}
+
+
+
+\end{document}
